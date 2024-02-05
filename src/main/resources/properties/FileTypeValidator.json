@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Edit @@fileTypeValidator.title@@",
+    "properties": [
+      {
+        "name": "mandatory",
+        "label": "@@fileTypeValidator.mandatory@@",
+        "type": "checkbox",
+        "options": [
+          {
+            "value": "true",
+            "label": ""
+          }
+        ]
+      },
+      {
+        "name": "includes",
+        "label": "@@fileTypeValidator.includes@@",
+        "description": "@@fileTypeValidator.includes.desc@@",
+        "type": "grid",
+        "columns": [
+          {
+            "key": "mimeType",
+            "label": "@@fileTypeValidator.mimeType@@",
+            "required": "true"
+          }
+        ]
+      },
+      {
+        "name": "excludes",
+        "label": "@@fileTypeValidator.excludes@@",
+        "description": "@@fileTypeValidator.excludes.desc@@",
+        "type": "grid",
+        "columns": [
+          {
+            "key": "mimeType",
+            "label": "@@fileTypeValidator.mimeType@@",
+            "required": "true"
+          }
+        ]
+      },
+      {
+        "name": "errorMessage",
+        "label": "@@fileTypeValidator.errorMessage@@",
+        "type": "textfield",
+        "description": "@@fileTypeValidator.errorMessage.desc@@"
+      }
+    ]
+  }
+]

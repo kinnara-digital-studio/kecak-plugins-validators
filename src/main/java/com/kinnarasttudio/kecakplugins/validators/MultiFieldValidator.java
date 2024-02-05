@@ -8,11 +8,9 @@ import org.joget.apps.form.model.FormValidator;
 import org.joget.apps.form.service.FormUtil;
 import org.joget.commons.util.LogUtil;
 import org.joget.commons.util.ResourceBundleUtil;
+import org.joget.plugin.base.PluginManager;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -23,6 +21,8 @@ import java.util.stream.Stream;
  *
  */
 public class MultiFieldValidator extends FormValidator {
+    public final static String LABEL = "Multivalue Multi Field Validator";
+
     @Override
     public boolean validate(Element element, FormData formData, String[] strings) {
         String id = FormUtil.getElementParameterName(element);
@@ -125,12 +125,15 @@ public class MultiFieldValidator extends FormValidator {
 
     @Override
     public String getName() {
-        return "Multivalue Multi Field Validator";
+        return LABEL;
     }
 
     @Override
     public String getVersion() {
-        return getClass().getPackage().getImplementationVersion();
+        PluginManager pluginManager = (PluginManager) AppUtil.getApplicationContext().getBean("pluginManager");
+        ResourceBundle resourceBundle = pluginManager.getPluginMessageBundle(getClassName(), "/messages/BuildNumber");
+        String buildNumber = resourceBundle.getString("buildNumber");
+        return buildNumber;
     }
 
     @Override
@@ -140,7 +143,7 @@ public class MultiFieldValidator extends FormValidator {
 
     @Override
     public String getLabel() {
-        return getName();
+        return LABEL;
     }
 
     @Override
