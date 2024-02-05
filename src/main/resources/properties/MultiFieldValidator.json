@@ -1,0 +1,37 @@
+[
+  {
+    "title": "@@multiFieldValidator.title@@",
+    "properties": [
+      {
+        "name": "elements",
+        "label": "@@multiFieldValidator.elements@@",
+        "type": "grid",
+        "required": "true",
+        "columns": [
+          {
+            "key": "name",
+            "label": "@@multiFieldValidator.name@@",
+            "required": "true"
+          }
+        ]
+      },
+      {
+        "name": "mandatory",
+        "label": "@@multiFieldValidator.mandatory@@",
+        "type": "checkbox",
+        "value": "false",
+        "options": [
+          {
+            "value": "true",
+            "label": ""
+          }
+        ]
+      },
+      {
+        "name": "message",
+        "label": "@@multiFieldValidator.message@@",
+        "type": "textfield",
+      }
+    ]
+  }
+]

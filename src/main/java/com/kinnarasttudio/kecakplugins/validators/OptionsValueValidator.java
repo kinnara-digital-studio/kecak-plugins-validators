@@ -12,6 +12,9 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Options Value Validator
+ */
 public class OptionsValueValidator extends FormValidator {
     public final static String LABEL = "Options Value Validator";
 
@@ -40,7 +43,10 @@ public class OptionsValueValidator extends FormValidator {
 
         final Stream<String> valuesStream = Optional.ofNullable(values)
                 .map(Arrays::stream)
-                .orElseGet(Stream::empty);
+                .orElseGet(Stream::empty)
+                .map(s -> s.split(";"))
+                .flatMap(Arrays::stream)
+                .filter(s -> !s.isEmpty());
 
         final Predicate<Predicate<String>> check;
         if(noneMatch()) {

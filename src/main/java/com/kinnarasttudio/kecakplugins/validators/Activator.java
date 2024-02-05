@@ -15,6 +15,7 @@ public class Activator implements BundleActivator {
 
         //Register plugin here
         registrationList.add(context.registerService(OptionsValueValidator.class.getName(), new OptionsValueValidator(), null));
+        registrationList.add(context.registerService(MultiFieldValidator.class.getName(), new MultiFieldValidator(), null));
     }
 
     public void stop(BundleContext context) {
