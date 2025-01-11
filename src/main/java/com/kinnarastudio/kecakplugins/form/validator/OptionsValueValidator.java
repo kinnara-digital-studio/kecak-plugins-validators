@@ -1,4 +1,4 @@
-package com.kinnarasttudio.kecakplugins.validators;
+package com.kinnarastudio.kecakplugins.form.validator;
 
 import org.joget.apps.app.service.AppUtil;
 import org.joget.apps.form.model.*;

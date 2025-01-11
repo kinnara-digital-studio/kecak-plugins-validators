@@ -1,0 +1,64 @@
+[
+  {
+    "title": "@@dateTimeValidator.title@@",
+    "properties": [
+      {
+        "name": "dateFormat",
+        "label": "@@dateTimeValidator.format@@",
+        "type": "textfield",
+        "description": "@@dateTimeValidator.format.desc@@",
+        "value": "yyyy-MM-dd hh:mm:ss",
+        "required": "true"
+      },
+      {
+        "name": "operator",
+        "label": "@@dateTimeValidator.operator@@",
+        "type": "radio",
+        "required": "true",
+        "options": [
+          {
+            "value": "exact",
+            "label": "@@dateTimeValidator.exact@@"
+          },
+          {
+            "value": "before",
+            "label": "@@dateTimeValidator.before@@"
+          },
+          {
+            "value": "after",
+            "label": "@@dateTimeValidator.after@@"
+          },
+          {
+            "value": "between",
+            "label": "@@dateTimeValidator.between@@"
+          }
+        ]
+      },
+      {
+        "name": "dateFrom",
+        "label": "@@dateTimeValidator.dateFrom@@",
+        "type": "textfield",
+        "description": "@@dateTimeValidator.dateFrom.desc@@",
+        "control_field":"operator",
+        "control_value": "between|after|exact",
+        "control_use_regex": "true"
+      },
+      {
+        "name": "dateTo",
+        "label": "@@dateTimeValidator.dateTo@@",
+        "type": "textfield",
+        "description": "@@dateTimeValidator.dateTo.desc@@",
+        "control_field":"operator",
+        "control_value": "between|before",
+        "control_use_regex": "true"
+      },
+      {
+        "name": "errorMessage",
+        "label": "@@dateTimeValidator.errorMessage@@",
+        "type": "textfield",
+        "required": "true",
+        "value": "@@dateTimeValidator.errorMessage.invalidDate@@"
+      }
+    ]
+  }
+]

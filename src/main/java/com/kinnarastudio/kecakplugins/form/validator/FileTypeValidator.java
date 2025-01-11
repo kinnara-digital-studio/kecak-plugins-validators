@@ -1,4 +1,4 @@
-package com.kinnarasttudio.kecakplugins.validators;
+package com.kinnarastudio.kecakplugins.form.validator;
 
 import com.kinnarastudio.commons.Try;
 import org.apache.tika.Tika;
@@ -40,8 +40,8 @@ public class FileTypeValidator extends FormValidator {
 
         if(isMandatory()) {
             boolean isEmpty = Optional.ofNullable(values)
-                    .map(Arrays::stream)
-                    .orElseGet(Stream::empty)
+                    .stream()
+                    .flatMap(Arrays::stream)
                     .filter(Objects::nonNull)
                     .allMatch(String::isEmpty);
 
@@ -123,9 +123,9 @@ public class FileTypeValidator extends FormValidator {
 
     protected Set<String> getMimeProperty(String propertyName) {
         return Optional.ofNullable(getProperty(propertyName))
-                .map(o -> (Object[])o)
-                .map(Arrays::stream)
-                .orElseGet(Stream::empty)
+                .map(o -> (Object[]) o)
+                .stream()
+                .flatMap(Arrays::stream)
                 .map(o -> (Map<String, Object>)o)
                 .map(m -> m.getOrDefault("mimeType", ""))
                 .map(String::valueOf)

@@ -1,4 +1,4 @@
-package com.kinnarasttudio.kecakplugins.validators;
+package com.kinnarastudio.kecakplugins.form.validator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,6 +17,7 @@ public class Activator implements BundleActivator {
         registrationList.add(context.registerService(OptionsValueValidator.class.getName(), new OptionsValueValidator(), null));
         registrationList.add(context.registerService(MultiFieldValidator.class.getName(), new MultiFieldValidator(), null));
         registrationList.add(context.registerService(FileTypeValidator.class.getName(), new FileTypeValidator(), null));
+        registrationList.add(context.registerService(DateTimeValidator.class.getName(), new DateTimeValidator(), null));
     }
 
     public void stop(BundleContext context) {
