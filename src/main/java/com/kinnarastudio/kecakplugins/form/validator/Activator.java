@@ -14,10 +14,11 @@ public class Activator implements BundleActivator {
         registrationList = new ArrayList<ServiceRegistration>();
 
         //Register plugin here
-        registrationList.add(context.registerService(OptionsValueValidator.class.getName(), new OptionsValueValidator(), null));
-        registrationList.add(context.registerService(MultiFieldValidator.class.getName(), new MultiFieldValidator(), null));
         registrationList.add(context.registerService(FileTypeValidator.class.getName(), new FileTypeValidator(), null));
         registrationList.add(context.registerService(DateTimeValidator.class.getName(), new DateTimeValidator(), null));
+        registrationList.add(context.registerService(MultiFieldValidator.class.getName(), new MultiFieldValidator(), null));
+        registrationList.add(context.registerService(OptionsValueValidator.class.getName(), new OptionsValueValidator(), null));
+        registrationList.add(context.registerService(ValuesMatcherValidator.class.getName(), new ValuesMatcherValidator(), null));
     }
 
     public void stop(BundleContext context) {

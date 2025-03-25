@@ -1,0 +1,50 @@
+[
+  {
+    "title": "@@valuesMatcherValidator.title@@",
+    "properties": [
+      {
+        "name": "values",
+        "label": "@@valuesMatcherValidator.values@@",
+        "type": "textfield",
+        "description": "@@valuesMatcherValidator.values.desc@@"
+      },
+      {
+        "name": "withValues",
+        "label": "@@valuesMatcherValidator.withValues@@",
+        "type": "textfield",
+        "description": "@@valuesMatcherValidator.withValues.desc@@"
+      },
+      {
+        "name": "matchType",
+        "label": "@@valuesMatcherValidator.matchType@@",
+        "type": "radio",
+        "value": "exact",
+        "options": [
+          {
+            "value": "all",
+            "label": "@@valuesMatcherValidator.all@@"
+          },
+          {
+            "value": "any",
+            "label": "@@valuesMatcherValidator.any@@"
+          },
+          {
+            "value": "none",
+            "label": "@@valuesMatcherValidator.none@@"
+          },
+          {
+            "value": "regex",
+            "label": "@@valuesMatcherValidator.regex@@"
+          }
+        ]
+      },
+      {
+        "name": "errorMessage",
+        "label": "@@valuesMatcherValidator.errorMessage@@",
+        "type": "textfield",
+        "required": "true",
+        "value": "Unmatched values"
+      }
+    ]
+  }
+]

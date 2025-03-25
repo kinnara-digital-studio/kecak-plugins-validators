@@ -30,7 +30,7 @@
       {
         "name": "message",
         "label": "@@multiFieldValidator.message@@",
-        "type": "textfield",
+        "type": "textfield"
       }
     ]
   }
