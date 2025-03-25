@@ -4,6 +4,7 @@ import org.joget.apps.app.service.AppUtil;
 import org.joget.apps.form.model.Element;
 import org.joget.apps.form.model.FormData;
 import org.joget.apps.form.model.FormValidator;
+import org.joget.commons.util.ResourceBundleUtil;
 import org.joget.plugin.base.PluginManager;
 
 import java.util.*;
@@ -18,6 +19,12 @@ public class ValuesMatcherValidator extends FormValidator {
     public boolean validate(Element element, FormData formData, String[] elementValues) {
         final Collection<String> values = ifEmpty(getValues(), () -> List.of(elementValues));
         final Collection<String> withValues = getWithValues();
+        final String elementId = element.getPropertyString("id");
+
+        if(values.isEmpty()) {
+            formData.addFormError(elementId, ResourceBundleUtil.getMessage("form.defaultvalidator.err.missingValue"));
+            return false;
+        }
 
         final boolean valid;
         if(isAllMatch()) {
@@ -34,7 +41,6 @@ public class ValuesMatcherValidator extends FormValidator {
         }
 
         if(!valid) {
-            final String elementId = element.getPropertyString("id");
             formData.addFormError(elementId, getErrorMessage());
         }
 
@@ -128,5 +134,10 @@ public class ValuesMatcherValidator extends FormValidator {
 
     protected <T, V extends Collection<T>> V ifEmpty(V values, Supplier<V> ifEmpty) {
         return values.isEmpty() ? ifEmpty.get() : values;
+    }
+
+    @Override
+    public String getElementDecoration() {
+        return "*";
     }
 }
