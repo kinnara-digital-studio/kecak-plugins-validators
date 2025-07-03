@@ -19,6 +19,7 @@ public class Activator implements BundleActivator {
         registrationList.add(context.registerService(MultiFieldValidator.class.getName(), new MultiFieldValidator(), null));
         registrationList.add(context.registerService(OptionsValueValidator.class.getName(), new OptionsValueValidator(), null));
         registrationList.add(context.registerService(ValuesMatcherValidator.class.getName(), new ValuesMatcherValidator(), null));
+        registrationList.add(context.registerService(NegationValidator.class.getName(), new NegationValidator(), null));
     }
 
     public void stop(BundleContext context) {
