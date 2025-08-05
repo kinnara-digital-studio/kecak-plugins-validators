@@ -86,7 +86,7 @@ public class DateTimeValidator extends FormValidator {
 
     @Override
     public String getDescription() {
-        return "";
+        return getClass().getPackage().getImplementationTitle();
     }
 
     @Override
